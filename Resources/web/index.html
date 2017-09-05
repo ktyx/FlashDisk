@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>%%WEBINTF_TITLE%%</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="jquery.fileupload.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div class="nav">
+        <div class="btn uploadBtn">
+          <input id="fileupload" type="file" name="files[]" data-url="upload.json" multiple>
+          +
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="uploads">
+        <ul></ul>
+      </div>
+      <div class="messageUpload">
+        <h1>%%WEBINTF_DROPFILES%%</h1>
+        <p>%%WEBINTF_DROPFILES_LONG%%</p>
+      </div>
+
+      <hr>
+      <div class="messageDownload">
+          <h1>%%WEBINTF_DOWNLOADFILES%%</h1>
+          <p>%%WEBINTF_DOWNLOADFILES_LONG%%</p>
+      </div>
+
+      <ul class="main downloads cf">
+        %%FILES%%
+      </ul>
+
+      <div id="footer">
+        <p></p>
+      </div>
+    </div>
+    <div id="overlay" class="">
+      <div id="modal">
+        <ul class="downloads cf">
+          <!-- content of div.content goes here -->
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

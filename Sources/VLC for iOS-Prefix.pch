@@ -1,0 +1,75 @@
+/*****************************************************************************
+ * Prefix header for all source files of the 'vlc-ios' target
+ * VLC for iOS
+ *****************************************************************************
+ * Copyright (c) 2013-2014 VideoLAN. All rights reserved.
+ * $Id$
+ *
+ * Authors: Felix Paul Kühne <fkuehne # videolan.org>
+ *
+ * Refer to the COPYING file of the official project for license.
+ *****************************************************************************/
+
+#import <Availability.h>
+
+#ifndef __IPHONE_9_0
+#error "This project uses features only available in iOS SDK 9.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+//#import <MobileVLCKit/MobileVLCKit.h>
+//#import <MediaLibraryKit/MediaLibraryKit.h>
+//#import "MediaLibraryKit.h"
+//#import "MobileVLCKit.h"
+#import "MediaLibraryKit.h"
+
+#import "VLCConstants.h"
+#import "UIColor+Presets.h"
+#import "UIBarButtonItem+Theme.h"
+#import "VLCAlertView.h"
+#import "VLCNavigationController.h"
+#import "VLCSidebarController.h"
+#import "UIViewController+VLCAlert.h"
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[UIDevice currentDevice] systemVersion].floatValue >= [v floatValue])
+
+#define SYSTEM_RUNS_IOS8_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")
+
+#ifndef NDEBUG
+#define APLog(format, ...) NSLog(format, ## __VA_ARGS__)
+#else
+#define APLog(format, ...)
+#endif
+
+
+
+
+//for MediaLibraryKit
+#if TARGET_OS_IPHONE
+
+#ifndef __IPHONE_9_0
+#error "This project uses features only available in iOS SDK 9.0 and later."
+#endif
+
+// FIXME
+#define HAVE_BLOCK 0
+
+#import <UIKit/UIKit.h>
+//#ifndef MLKIT_READONLY_TARGET
+//#if !TARGET_OS_WATCH
+//#endif
+//#endif
+
+#else
+#define HAVE_BLOCK 1
+#import <VLCKit/VLCKit.h>
+#import "NSXMLNode_Additions.h"
+
+#endif
+
+//#import "UIImage+MLKit.h"
+
